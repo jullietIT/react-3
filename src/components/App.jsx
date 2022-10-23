@@ -3,7 +3,7 @@ import axios from 'axios';
 import Select from 'react-select';
 import { GlobalStyle } from './GlobalStyle';
 
-axios.defaults.baseURL = 'https://thedogapi.com/v1/';
+axios.defaults.baseURL = 'https://api.thedogapi.com/v1';
 axios.defaults.headers.common['x-api-key'] = process.env.REACT_APP_API_KEY;
 
 export class App extends Component {
@@ -15,7 +15,7 @@ export class App extends Component {
   async componentDidMount() {
     try {
       const response = await axios.get('/breeds');
-      this.setState({ bpeeds: response.data });
+      this.setState({ breeds: response.data });
     } catch (error) {}
   }
 
